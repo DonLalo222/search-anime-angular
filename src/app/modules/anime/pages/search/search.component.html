@@ -1,52 +1,52 @@
 <br />
 <div class="input-group mb-3">
-  <input type="text" class="form-control" #searchInput  (keyup.enter)="eventKeyup($event)"/>
-<button (click)="getData(searchInput.value)" class="btn btn-outline-secondary">Find</button>
+  <input type="text" class="form-control" #searchInput  (keyup.enter)="eventKeyup($event)" placeholder="example: dragon ball..." />
+<button (click)="getData(searchInput.value)" class="btn btn-dark">Go!</button>
 </div>
 
-<hr />
+<hr class="bg-light" />
 <div *ngIf="result; else loading">
-  <h3 class="fw-light">
+  <h3 class="fw-light text-white">
     Results for: "{{inputUser}}"
   </h3>
   <!-- pagination -->
   <nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item" *ngIf="result.links.first">
-        <button type="button" class="page-link" (click)="getDataLink(result.links.first)">First</button>
+        <button type="button" class="btn btn-secondary" (click)="getDataLink(result.links.first)"><i class="bi bi-house-door-fill"></i> First</button>
       </li>
       <li class="page-item" *ngIf="result.links.prev">
-        <button type="button" class="page-link" (click)="getDataLink(result.links.prev)">previus</button>
+        <button type="button" class="btn btn-dark" (click)="getDataLink(result.links.prev)"><i class="bi bi-arrow-left"></i>  Previus</button>
       </li>
       <li class="page-item" *ngIf="result.links.next">
-        <button type="button" class="page-link" (click)="getDataLink(result.links.next)">Next</button>
+        <button type="button" class="btn btn-dark" (click)="getDataLink(result.links.next)"><i class="bi bi-arrow-right"></i>  Next</button>
       </li>
       <li class="page-item" *ngIf="result.links.last">
-        <button type="button" class="page-link" (click)="getDataLink(result.links.last)">Last</button>
+        <button type="button" class="btn btn-dark" (click)="getDataLink(result.links.last)"><i class="bi bi-circle-fill"></i> Last</button>
       </li>
     </ul>
   </nav>
   <!-- end pagination -->
   <div class="row">
-    <div class="card col-md-4 mt-4" *ngFor="let item of result.data">
-      <img src="{{ item.attributes.posterImage.large }}" class="card-img-top" alt="cover anime" title="{{item.attributes.canonicalTitle}}" />
-      <div class="card-body">
-        <h5 class="card-title">{{ item.attributes.canonicalTitle }}
-        </h5>
-        <p class="fw-light">
-          Episodes: {{item.attributes.episodeCount}}<br>
-          Start:  {{item.attributes.startDate}}<br>
-          End:  {{item.attributes.endDate}}
-        </p>
+      <div class="card col-md-4 p-2 h-100" *ngFor="let item of result.data">
+        <img src="{{ item.attributes.posterImage.large }}" class="card-img-top" alt="cover anime" title="{{item.attributes.canonicalTitle}}" />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.attributes.canonicalTitle }}
+          </h5>
+          <p class="fw-light">
+            Episodes: {{item.attributes.episodeCount}}<br>
+            Start:  {{item.attributes.startDate}}<br>
+            End:  {{item.attributes.endDate}}
+          </p>
+        </div>
+        <div class="card-footer d-inline">
+          <small class="text-muted">type: {{item.type}} - {{item.attributes.showType}} | status: {{item.attributes.status}}</small>
+        </div>
       </div>
-      <div class="card-footer d-inline">
-        <small class="text-muted">type: {{item.type}} - {{item.attributes.showType}} | status: {{item.attributes.status}}</small>
-      </div>
-    </div>
   </div>
 </div>
 <ng-template #loading>
   <div *ngIf="isLoading">
-    <p class="fw-light">Loading...</p>
+    <p class="fw-light text-white">Loading...</p>
   </div>
 </ng-template>
