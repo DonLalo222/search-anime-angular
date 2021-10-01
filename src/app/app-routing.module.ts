@@ -5,7 +5,7 @@ const routes: Routes = [{ path: '',
 loadChildren: () => import('./modules/anime/anime.module').then(m => m.AnimeModule) }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
