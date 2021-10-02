@@ -14,7 +14,7 @@ export class AnimeService {
 
   async search(inputUser: string): Promise<Object>{
 
-    return await this.httpClient.get(this.URL_BASE + '/anime?filter[text]=' + inputUser, this.httpOptions).toPromise();
+    return await this.httpClient.get(this.URL_BASE + '/anime?filter[text]=' + inputUser + '&page[limit]=12', this.httpOptions).toPromise();
   }
 
   async linkToPage(link: string): Promise<Object>{
