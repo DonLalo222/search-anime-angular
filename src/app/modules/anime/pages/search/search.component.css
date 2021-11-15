@@ -1,8 +1,28 @@
 img{
   object-fit: contain;
 }
-input{
-  width: 30%;
+.input-user-custom{
+  background-color: #ffff;
+  border-color: #1d3557;
+  box-shadow: 1px 2px #457b9d;
 }
+
+.btn-user-custom{
+  background-color: #1d3557;
+  color: #f1faee;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn-first, .btn-next, .btn-last, .btn-prev{
+background-color: #ffff;
+border-radius: 2px;
+box-shadow: 2px 2px #457b9d;
+}
+
+.btn-first:hover, .btn-next:hover, .btn-last:hover, .btn-prev:hover{
+  background-color: #457b9d;
+  color: #ffff;
+  }
 
 

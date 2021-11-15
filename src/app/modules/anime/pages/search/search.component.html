@@ -1,7 +1,7 @@
 <br />
 <div class="input-group mb-3">
-  <input type="text" class="form-control" #searchInput  (keyup.enter)="eventKeyup($event)" placeholder="example: dragon ball..." />
-<button (click)="getData(searchInput.value)" class="btn btn-dark">Go!</button>
+  <input type="text" class="form-control input-user-custom" #searchInput  (keyup.enter)="eventKeyup($event)" placeholder="example: dragon ball..." />
+<button (click)="getData(searchInput.value)" class="btn-user-custom">Go!</button>
 </div>
 
 <hr class="bg-light" />
@@ -13,16 +13,16 @@
   <nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item m-2" *ngIf="result.links.first">
-        <button type="button" class="btn btn-secondary" (click)="getDataLink(result.links.first)"><i class="bi bi-house-door-fill"></i> First</button>
+        <button type="button" class="btn-first" (click)="getDataLink(result.links.first)"><i class="bi bi-house-door-fill"></i> First</button>
       </li>
       <li class="page-item m-2" *ngIf="result.links.prev">
-        <button type="button" class="btn btn-dark" (click)="getDataLink(result.links.prev)"><i class="bi bi-arrow-left"></i>  Previus</button>
+        <button type="button" class="btn-prev" (click)="getDataLink(result.links.prev)"><i class="bi bi-arrow-left"></i>  Previus</button>
       </li>
       <li class="page-item m-2" *ngIf="result.links.next">
-        <button type="button" class="btn btn-dark" (click)="getDataLink(result.links.next)">Next  <i class="bi bi-arrow-right"></i></button>
+        <button type="button" class="btn-next" (click)="getDataLink(result.links.next)">Next  <i class="bi bi-arrow-right"></i></button>
       </li>
       <li class="page-item m-2" *ngIf="result.links.last">
-        <button type="button" class="btn btn-dark" (click)="getDataLink(result.links.last)">Last</button>
+        <button type="button" class="btn-last" (click)="getDataLink(result.links.last)">Last</button>
       </li>
     </ul>
   </nav>
